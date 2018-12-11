@@ -12,10 +12,11 @@ public class DisplayJokeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_joke);
 //        Get Intent
+        String KEY_JOKE = "joke";
         Intent intent = getIntent();
-        if (intent.hasExtra("Joke")) {
+        if (intent.hasExtra(KEY_JOKE)) {
 //            Display Joke if intent has joke
-            Toast.makeText(this, intent.getStringExtra("Joke"), Toast.LENGTH_LONG).show();
+            Toast.makeText(this, intent.getStringExtra(KEY_JOKE), Toast.LENGTH_LONG).show();
         }
     }
 }
