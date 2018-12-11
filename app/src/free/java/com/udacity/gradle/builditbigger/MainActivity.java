@@ -1,14 +1,10 @@
 package com.udacity.gradle.builditbigger;
 
-import android.content.Intent;
+
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-
-import notex.android.blackcoder.com.displayjokeandroid.DisplayJokeActivity;
-import notex.android.blackcoder.com.jokeproviderjava.JokeProvider;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -41,16 +37,4 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
-    public void tellJoke(View view) {
-//        Java Library Class instance
-        JokeProvider jokeProvider = new JokeProvider();
-        Intent displayJokeIntent = new Intent(this, DisplayJokeActivity.class);
-//        Put joke from library as extra and pass to display activity
-        displayJokeIntent.putExtra("Joke", jokeProvider.funnyJokeResponse());
-//        Start Display Activity
-        startActivity(displayJokeIntent);
-    }
-
-
 }
