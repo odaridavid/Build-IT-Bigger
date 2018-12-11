@@ -4,8 +4,6 @@ import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiNamespace;
 
-import javax.inject.Named;
-
 import notex.android.blackcoder.com.jokeproviderjava.JokeProvider;
 
 /** An endpoint class we are exposing */
@@ -25,7 +23,7 @@ public class MyEndpoint {
     public MyBean provideJoke() {
         MyBean response = new MyBean();
         JokeProvider jokeProvider = new JokeProvider();
-        response.setData(jokeProvider.funnyJokeResponse());
+        response.setData(jokeProvider.jokeResponse());
         return response;
     }
 
