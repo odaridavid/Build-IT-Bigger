@@ -3,7 +3,9 @@
     package="notex.android.blackcoder.com.displayjokeandroid">
 
     <application>
-        <activity android:name=".DisplayJokeActivity"></activity>
+        <activity
+            android:name=".DisplayJokeActivity"
+            android:launchMode="singleTop" />
     </application>
 
 </manifest>
