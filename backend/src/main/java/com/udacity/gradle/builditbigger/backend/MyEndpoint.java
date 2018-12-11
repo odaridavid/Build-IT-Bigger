@@ -6,6 +6,8 @@ import com.google.api.server.spi.config.ApiNamespace;
 
 import javax.inject.Named;
 
+import notex.android.blackcoder.com.jokeproviderjava.JokeProvider;
+
 /** An endpoint class we are exposing */
 @Api(
         name = "myApi",
@@ -18,12 +20,12 @@ import javax.inject.Named;
 )
 public class MyEndpoint {
 
-    /** A simple endpoint method that takes a name and says Hi back */
-    @ApiMethod(name = "sayHi")
-    public MyBean sayHi(@Named("name") String name) {
+    /** An endpoint method that gives a joke */
+    @ApiMethod(name = "provideJoke")
+    public MyBean provideJoke() {
         MyBean response = new MyBean();
-        response.setData("Hi, " + name);
-
+        JokeProvider jokeProvider = new JokeProvider();
+        response.setData(jokeProvider.funnyJokeResponse());
         return response;
     }
 

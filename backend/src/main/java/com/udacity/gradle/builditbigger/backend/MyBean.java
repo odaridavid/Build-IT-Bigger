@@ -9,7 +9,7 @@ public class MyBean {
         return myData;
     }
 
-    public void setData(String data) {
+    protected void setData(String data) {
         myData = data;
     }
 }
