@@ -1,6 +1,5 @@
 package com.udacity.gradle.builditbigger;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -8,8 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import notex.android.blackcoder.com.displayjokeandroid.DisplayJokeActivity;
-import notex.android.blackcoder.com.jokeproviderjava.JokeProvider;
+import com.udacity.gradle.builditbigger.NetworkUtils.EndpointsAsyncTask;
 
 
 /**
@@ -35,7 +33,8 @@ public class MainActivityFragment extends Fragment {
     }
 
     public void tellJoke() {
-
+//        Get jokes with no ads - false
+        new EndpointsAsyncTask(false).execute();
     }
 
 }
