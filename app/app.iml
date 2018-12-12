@@ -216,17 +216,5 @@
     <orderEntry type="library" name="Gradle: com.android.support:appcompat-v7-28.0.0" level="project" />
     <orderEntry type="module" module-name="displayjokeandroid" />
     <orderEntry type="module" module-name="JokeProviderJava" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-measurement-base-16.0.5" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-ads-17.1.2" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-basement-16.0.1" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-gass-17.1.2" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-ads-identifier-16.0.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-ads-lite-17.1.2" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-ads-base-17.1.2" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-measurement-sdk-api-16.0.4" level="project" />
-    <orderEntry type="module" module-name="displayjokeandroid" />
-    <orderEntry type="module" module-name="JokeProviderJava" />
-    <orderEntry type="module" module-name="displayjokeandroid" />
-    <orderEntry type="module" module-name="JokeProviderJava" />
   </component>
 </module>
