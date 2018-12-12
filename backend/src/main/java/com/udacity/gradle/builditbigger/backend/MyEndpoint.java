@@ -18,7 +18,9 @@ import notex.android.blackcoder.com.jokeproviderjava.JokeProvider;
 )
 public class MyEndpoint {
 
-    /** An endpoint method that gives a joke */
+    /**
+     * An endpoint method that gives a joke from java library
+     */
     @ApiMethod(name = "provideJoke")
     public MyBean provideJoke() {
         MyBean response = new MyBean();
