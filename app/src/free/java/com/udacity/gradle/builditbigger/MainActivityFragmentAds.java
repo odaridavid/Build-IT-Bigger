@@ -49,6 +49,7 @@ public class MainActivityFragmentAds extends Fragment {
     }
 
     public void tellJoke() {
+//        Gets jokes with ads set to true
         new EndpointsAsyncTask(true).execute();
     }
 }
