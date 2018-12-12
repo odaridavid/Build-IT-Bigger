@@ -14,6 +14,7 @@ public class JokeProvider {
                     "Too much JAVA."
     };
     public String jokeResponse(){
+//        Picks a Joke at Random
         int jokesInRepo = jokesRepo.length;
         Random r = new Random();
         int index = r.nextInt(jokesInRepo);
