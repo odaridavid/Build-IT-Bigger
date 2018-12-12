@@ -1,5 +1,6 @@
 package com.udacity.gradle.builditbigger;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -35,7 +36,7 @@ public class MainActivityFragmentAds extends Fragment {
         btnJoke.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tellJoke();
+                tellJoke(inflater.getContext());
             }
         });
         // Create an ad request. Check logcat output for the hashed device ID to
@@ -48,8 +49,8 @@ public class MainActivityFragmentAds extends Fragment {
         return root;
     }
 
-    public void tellJoke() {
+    public void tellJoke(Context context) {
 //        Gets jokes with ads set to true
-        new EndpointsAsyncTask(true).execute();
+        new EndpointsAsyncTask(context,true).execute();
     }
 }
