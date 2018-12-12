@@ -35,11 +35,7 @@ public class MainActivityFragment extends Fragment {
     }
 
     public void tellJoke() {
-        JokeProvider jokeProvider = new JokeProvider();
-        Intent intent = new Intent(getContext(), DisplayJokeActivity.class);
-        String KEY_JOKE = "joke";
-        intent.putExtra(KEY_JOKE, jokeProvider.jokeResponse());
-        startActivity(intent);
+
     }
 
 }

@@ -1,6 +1,7 @@
 package com.udacity.gradle.builditbigger.NetworkUtils;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Pair;
 
@@ -12,9 +13,16 @@ import com.udacity.gradle.builditbigger.backend.myApi.MyApi;
 
 import java.io.IOException;
 
+import notex.android.blackcoder.com.displayjokeandroid.DisplayJokeActivity;
+
 public class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> {
     private static MyApi myApiService = null;
     private Context context;
+    private boolean showAds;
+
+    EndpointsAsyncTask(boolean showAds) {
+        this.showAds = showAds;
+    }
 
     @Override
     protected String doInBackground(Pair<Context, String>... pairs) {
@@ -41,6 +49,16 @@ public class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, S
     @Override
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
-//      Result is Joke from endpoint
+//        Open DisplayJoke Activity if its free or paid version
+        Intent intent = new Intent(context, DisplayJokeActivity.class);
+        String KEY_JOKE = "joke";
+//      Result is Joke from endpoint-determines whether to show ads or not
+        if (showAds) {
+
+        } else {
+
+            intent.putExtra(KEY_JOKE, result);
+            context.startActivity(intent);
+        }
     }
 }
