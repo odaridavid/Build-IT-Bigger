@@ -20,7 +20,7 @@ public class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, S
     private Context context;
     private boolean showAds;
 
-    EndpointsAsyncTask(boolean showAds) {
+    public EndpointsAsyncTask(boolean showAds) {
         this.showAds = showAds;
     }
 

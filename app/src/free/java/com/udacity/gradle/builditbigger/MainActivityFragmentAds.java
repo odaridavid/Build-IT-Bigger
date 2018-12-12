@@ -1,6 +1,5 @@
 package com.udacity.gradle.builditbigger;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -11,9 +10,8 @@ import android.widget.Button;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
+import com.udacity.gradle.builditbigger.NetworkUtils.EndpointsAsyncTask;
 
-import notex.android.blackcoder.com.displayjokeandroid.DisplayJokeActivity;
-import notex.android.blackcoder.com.jokeproviderjava.JokeProvider;
 
 
 /**
@@ -25,7 +23,7 @@ public class MainActivityFragmentAds extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_main, container, false);
 //        Initialize Ads - Sample App Id
@@ -51,6 +49,6 @@ public class MainActivityFragmentAds extends Fragment {
     }
 
     public void tellJoke() {
-
+        new EndpointsAsyncTask(true).execute();
     }
 }
