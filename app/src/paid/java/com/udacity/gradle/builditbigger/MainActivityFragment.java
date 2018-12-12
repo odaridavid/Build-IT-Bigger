@@ -1,5 +1,6 @@
 package com.udacity.gradle.builditbigger;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -19,22 +20,22 @@ public class MainActivityFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_main, container, false);
         Button btnJoke = root.findViewById(R.id.btn_joke_launch);
         btnJoke.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tellJoke();
+                tellJoke(inflater.getContext());
             }
         });
         return root;
     }
 
-    public void tellJoke() {
+    public void tellJoke(Context context) {
 //        Get jokes with no ads - false
-        new EndpointsAsyncTask(false).execute();
+        new EndpointsAsyncTask(context, false).execute();
     }
 
 }

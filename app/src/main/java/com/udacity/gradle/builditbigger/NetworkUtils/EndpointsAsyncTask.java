@@ -15,17 +15,18 @@ import java.io.IOException;
 
 import notex.android.blackcoder.com.displayjokeandroid.DisplayJokeActivity;
 
-public class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> {
+public class EndpointsAsyncTask extends AsyncTask<Void, Void, String> {
     private static MyApi myApiService = null;
     private Context context;
     private boolean showAds;
 
-    public EndpointsAsyncTask(boolean showAds) {
+    public EndpointsAsyncTask(Context context,boolean showAds) {
         this.showAds = showAds;
+        this.context = context;
     }
 
     @Override
-    protected String doInBackground(Pair<Context, String>... pairs) {
+    protected String doInBackground(Void... voids) {
         if (myApiService == null) {
             MyApi.Builder builder = new MyApi.Builder(AndroidHttp.newCompatibleTransport(), new AndroidJsonFactory(), null)
                     .setRootUrl("http://10.0.2.2:8080/_ah/api/")
@@ -37,14 +38,13 @@ public class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, S
                     });
             myApiService = builder.build();
         }
-        context = pairs[0].first;
-        String name = pairs[0].second;
         try {
             return myApiService.provideJoke().execute().getData();
         }catch (IOException e){
             return e.getMessage();
         }
     }
+
 
     @Override
     protected void onPostExecute(String result) {
