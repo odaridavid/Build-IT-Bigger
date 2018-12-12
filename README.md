@@ -1,3 +1,12 @@
+
+# Build It Bigger
+### Screenshots
+
+|![Freemium](https://github.com/Davidodari/Build-IT-Bigger/blob/master/screenshots/Freemium_1.png )
+|![Freemium](https://github.com/Davidodari/Build-IT-Bigger/blob/master/screenshots/Freemium_2.png)
+|![Premium](https://github.com/Davidodari/Build-IT-Bigger/blob/master/screenshots/Premium_1.png )
+|![Premium](https://github.com/Davidodari/Build-IT-Bigger/blob/master/screenshots/Premium_1.png )
+|
 # Gradle for Android and Java Final Project
 
 In this project, you will create an app with multiple flavors that uses
