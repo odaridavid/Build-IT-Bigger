@@ -51,16 +51,6 @@ public class MainActivityFragmentAds extends Fragment {
     }
 
     public void tellJoke() {
-//        Java Library Class instance
-        JokeProvider jokeProvider = new JokeProvider();
-        Intent displayJokeIntent = new Intent(getActivity(), DisplayJokeActivity.class);
-//        Put joke from library as extra and pass to display activity
-        String KEY_JOKE = "joke";
-        String KEY_FREE = "free_version";
-        displayJokeIntent.putExtra(KEY_JOKE, jokeProvider.jokeResponse());
-//        Key used to determine if its free version
-        displayJokeIntent.putExtra(KEY_FREE, true);
-//        Start Display Activity
-        startActivity(displayJokeIntent);
+
     }
 }

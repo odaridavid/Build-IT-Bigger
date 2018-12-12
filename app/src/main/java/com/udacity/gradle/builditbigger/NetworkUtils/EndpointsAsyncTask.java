@@ -52,13 +52,16 @@ public class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, S
 //        Open DisplayJoke Activity if its free or paid version
         Intent intent = new Intent(context, DisplayJokeActivity.class);
         String KEY_JOKE = "joke";
+        String KEY_FREE = "free_version";
 //      Result is Joke from endpoint-determines whether to show ads or not
         if (showAds) {
-
-        } else {
-
             intent.putExtra(KEY_JOKE, result);
-            context.startActivity(intent);
+//        Key used to determine if its free version
+            intent.putExtra(KEY_FREE, true);
+        } else {
+            intent.putExtra(KEY_JOKE, result);
         }
+//        Start Activity
+        context.startActivity(intent);
     }
 }
