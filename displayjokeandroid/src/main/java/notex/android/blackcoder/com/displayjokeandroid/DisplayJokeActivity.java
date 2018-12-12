@@ -52,6 +52,7 @@ public class DisplayJokeActivity extends AppCompatActivity {
                     @Override
                     public void onAdFailedToLoad(int i) {
                         super.onAdFailedToLoad(i);
+//                        If ad doesn't load
                         Toast.makeText(DisplayJokeActivity.this, "Ad Not Loaded", Toast.LENGTH_LONG).show();
                        String err = String.format(Locale.getDefault(),"View Ad To See Joke:\nError Code %d",i);
                         textView.setText(err);
@@ -60,7 +61,7 @@ public class DisplayJokeActivity extends AppCompatActivity {
 
 
             } else if (intent.hasExtra(KEY_JOKE)) {
-                //            Display Joke if intent has joke for Paid Version
+                //            Display Joke if intent has joke for Paid Version-no ads
                 textView.setText(joke);
             }
         }

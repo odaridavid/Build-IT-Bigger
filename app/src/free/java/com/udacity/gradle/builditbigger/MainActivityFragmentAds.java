@@ -58,6 +58,7 @@ public class MainActivityFragmentAds extends Fragment {
         String KEY_JOKE = "joke";
         String KEY_FREE = "free_version";
         displayJokeIntent.putExtra(KEY_JOKE, jokeProvider.jokeResponse());
+//        Key used to determine if its free version
         displayJokeIntent.putExtra(KEY_FREE, true);
 //        Start Display Activity
         startActivity(displayJokeIntent);
