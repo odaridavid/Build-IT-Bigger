@@ -233,5 +233,9 @@
     <orderEntry type="module" module-name="JokeProviderJava" />
     <orderEntry type="module" module-name="displayjokeandroid" />
     <orderEntry type="module" module-name="JokeProviderJava" />
+    <orderEntry type="module" module-name="displayjokeandroid" />
+    <orderEntry type="module" module-name="JokeProviderJava" />
+    <orderEntry type="module" module-name="displayjokeandroid" />
+    <orderEntry type="module" module-name="JokeProviderJava" />
   </component>
 </module>
