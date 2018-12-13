@@ -1,6 +1,7 @@
 package com.udacity.gradle.builditbigger;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -9,6 +10,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.udacity.gradle.builditbigger.NetworkUtils.EndpointsAsyncTask;
+import com.udacity.gradle.builditbigger.NetworkUtils.IJokeLoadedInterface;
+
+import notex.android.blackcoder.com.displayjokeandroid.DisplayJokeActivity;
 
 
 /**
@@ -33,9 +37,18 @@ public class MainActivityFragment extends Fragment {
         return root;
     }
 
-    public void tellJoke(Context context) {
-//        Get jokes with no ads - false
-        new EndpointsAsyncTask(context, false).execute();
+    public void tellJoke(final Context context) {
+//        Get jokes with no ads
+        new EndpointsAsyncTask(context).execute(new IJokeLoadedInterface() {
+            @Override
+            public void jokeLoaded(String joke) {
+                //        Open DisplayJoke Activity - executed in postExecute
+                Intent intent = new Intent(context, DisplayJokeActivity.class);
+                String KEY_JOKE = "joke";
+                intent.putExtra(KEY_JOKE, joke);
+                context.startActivity(intent);
+            }
+        });
     }
 
 }

@@ -1,9 +1,7 @@
 package com.udacity.gradle.builditbigger.NetworkUtils;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.AsyncTask;
-import android.util.Pair;
 
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
@@ -13,20 +11,18 @@ import com.udacity.gradle.builditbigger.backend.myApi.MyApi;
 
 import java.io.IOException;
 
-import notex.android.blackcoder.com.displayjokeandroid.DisplayJokeActivity;
-
-public class EndpointsAsyncTask extends AsyncTask<Void, Void, String> {
+public class EndpointsAsyncTask extends AsyncTask<IJokeLoadedInterface, Void, String> {
+    //    Interface for easier testing
+    private IJokeLoadedInterface iJokeLoadedInterface;
     private static MyApi myApiService = null;
     private Context context;
-    private boolean showAds;
 
-    public EndpointsAsyncTask(Context context,boolean showAds) {
-        this.showAds = showAds;
+    public EndpointsAsyncTask(Context context) {
         this.context = context;
     }
 
     @Override
-    protected String doInBackground(Void... voids) {
+    protected String doInBackground(IJokeLoadedInterface... iJokeLoadedInterfaces) {
         if (myApiService == null) {
             MyApi.Builder builder = new MyApi.Builder(AndroidHttp.newCompatibleTransport(), new AndroidJsonFactory(), null)
                     .setRootUrl("http://10.0.2.2:8080/_ah/api/")
@@ -38,6 +34,8 @@ public class EndpointsAsyncTask extends AsyncTask<Void, Void, String> {
                     });
             myApiService = builder.build();
         }
+//        Assign Listener on Async Task Call
+        iJokeLoadedInterface = iJokeLoadedInterfaces[0];
         try {
             return myApiService.provideJoke().execute().getData();
         }catch (IOException e){
@@ -49,19 +47,8 @@ public class EndpointsAsyncTask extends AsyncTask<Void, Void, String> {
     @Override
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
-//        Open DisplayJoke Activity if its free or paid version
-        Intent intent = new Intent(context, DisplayJokeActivity.class);
-        String KEY_JOKE = "joke";
-        String KEY_FREE = "free_version";
-//      Result is Joke from endpoint-determines whether to show ads or not
-        if (showAds) {
-            intent.putExtra(KEY_JOKE, result);
-//        Key used to determine if its free version
-            intent.putExtra(KEY_FREE, true);
-        } else {
-            intent.putExtra(KEY_JOKE, result);
+        if (this.iJokeLoadedInterface != null) {
+            this.iJokeLoadedInterface.jokeLoaded(result);
         }
-//        Start Activity
-        context.startActivity(intent);
     }
 }
