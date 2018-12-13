@@ -1,6 +1,7 @@
 package com.udacity.gradle.builditbigger.NetworkUtils;
 
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
@@ -14,6 +15,7 @@ public class EndpointsAsyncTask extends AsyncTask<IJokeLoadedInterface, Void, St
     //    Interface for easier testing
     private IJokeLoadedInterface iJokeLoadedInterface;
     private static MyApi myApiService = null;
+    private String TAG = EndpointsAsyncTask.class.getSimpleName();
     @Override
     protected String doInBackground(IJokeLoadedInterface... iJokeLoadedInterfaces) {
         final String ROOT_URL_LOCALHOST = "http://10.0.2.2:8080/_ah/api/";
@@ -33,7 +35,9 @@ public class EndpointsAsyncTask extends AsyncTask<IJokeLoadedInterface, Void, St
         try {
             return myApiService.provideJoke().execute().getData();
         }catch (IOException e){
-            return e.getMessage();
+            Log.d(TAG, e.getMessage());
+//            Returns empty string on exception received
+            return "";
         }
     }
 
