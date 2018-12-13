@@ -39,7 +39,7 @@ public class MainActivityFragment extends Fragment {
 
     public void tellJoke(final Context context) {
 //        Get jokes with no ads
-        new EndpointsAsyncTask(context).execute(new IJokeLoadedInterface() {
+        new EndpointsAsyncTask().execute(new IJokeLoadedInterface() {
             @Override
             public void jokeLoaded(String joke) {
                 //        Open DisplayJoke Activity - executed in postExecute

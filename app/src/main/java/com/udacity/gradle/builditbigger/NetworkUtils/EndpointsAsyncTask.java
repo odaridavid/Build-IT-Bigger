@@ -1,6 +1,5 @@
 package com.udacity.gradle.builditbigger.NetworkUtils;
 
-import android.content.Context;
 import android.os.AsyncTask;
 
 import com.google.api.client.extensions.android.http.AndroidHttp;
@@ -15,17 +14,12 @@ public class EndpointsAsyncTask extends AsyncTask<IJokeLoadedInterface, Void, St
     //    Interface for easier testing
     private IJokeLoadedInterface iJokeLoadedInterface;
     private static MyApi myApiService = null;
-    private Context context;
-
-    public EndpointsAsyncTask(Context context) {
-        this.context = context;
-    }
-
     @Override
     protected String doInBackground(IJokeLoadedInterface... iJokeLoadedInterfaces) {
+        final String ROOT_URL_LOCALHOST = "http://10.0.2.2:8080/_ah/api/";
         if (myApiService == null) {
             MyApi.Builder builder = new MyApi.Builder(AndroidHttp.newCompatibleTransport(), new AndroidJsonFactory(), null)
-                    .setRootUrl("http://10.0.2.2:8080/_ah/api/")
+                    .setRootUrl(ROOT_URL_LOCALHOST)
                     .setGoogleClientRequestInitializer(new GoogleClientRequestInitializer() {
                         @Override
                         public void initialize(AbstractGoogleClientRequest<?> request) throws IOException {
