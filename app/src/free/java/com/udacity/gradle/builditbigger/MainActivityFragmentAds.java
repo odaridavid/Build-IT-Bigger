@@ -1,6 +1,7 @@
 package com.udacity.gradle.builditbigger;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -12,7 +13,9 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 import com.udacity.gradle.builditbigger.NetworkUtils.EndpointsAsyncTask;
+import com.udacity.gradle.builditbigger.NetworkUtils.IJokeLoadedInterface;
 
+import notex.android.blackcoder.com.displayjokeandroid.DisplayJokeActivity;
 
 
 /**
@@ -49,8 +52,19 @@ public class MainActivityFragmentAds extends Fragment {
         return root;
     }
 
-    public void tellJoke(Context context) {
+    public void tellJoke(final Context context) {
 //        Gets jokes with ads set to true
-        new EndpointsAsyncTask(context,true).execute();
+        new EndpointsAsyncTask(context).execute(new IJokeLoadedInterface() {
+            @Override
+            public void jokeLoaded(String joke) {
+                //        Open DisplayJoke Activity - executed in postExecute
+                Intent intent = new Intent(context, DisplayJokeActivity.class);
+                String KEY_JOKE = "joke";
+                String KEY_FREE = "free_version";
+                intent.putExtra(KEY_JOKE, joke);
+                intent.putExtra(KEY_FREE, true);
+                context.startActivity(intent);
+            }
+        });
     }
 }
