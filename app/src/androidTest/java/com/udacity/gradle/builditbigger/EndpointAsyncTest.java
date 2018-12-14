@@ -2,8 +2,8 @@ package com.udacity.gradle.builditbigger;
 
 import android.support.test.runner.AndroidJUnit4;
 
-import com.udacity.gradle.builditbigger.NetworkUtils.EndpointsAsyncTask;
-import com.udacity.gradle.builditbigger.NetworkUtils.IJokeLoadedInterface;
+import com.udacity.gradle.builditbigger.networkutils.EndpointsAsyncTask;
+import com.udacity.gradle.builditbigger.networkutils.IJokeLoadedInterface;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,4 +1,4 @@
-package com.udacity.gradle.builditbigger.NetworkUtils;
+package com.udacity.gradle.builditbigger.networkutils;
 
 import android.os.AsyncTask;
 import android.util.Log;

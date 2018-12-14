@@ -12,8 +12,8 @@ import android.widget.Button;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
-import com.udacity.gradle.builditbigger.NetworkUtils.EndpointsAsyncTask;
-import com.udacity.gradle.builditbigger.NetworkUtils.IJokeLoadedInterface;
+import com.udacity.gradle.builditbigger.networkutils.EndpointsAsyncTask;
+import com.udacity.gradle.builditbigger.networkutils.IJokeLoadedInterface;
 
 import notex.android.blackcoder.com.displayjokeandroid.DisplayJokeActivity;
 

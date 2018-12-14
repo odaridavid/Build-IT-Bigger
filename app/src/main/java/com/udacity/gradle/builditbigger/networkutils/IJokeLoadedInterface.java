@@ -1,4 +1,4 @@
-package com.udacity.gradle.builditbigger.NetworkUtils;
+package com.udacity.gradle.builditbigger.networkutils;
 
 //Tasl Beimg Executed Interface
 public interface IJokeLoadedInterface {
