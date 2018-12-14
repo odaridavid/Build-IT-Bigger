@@ -2,7 +2,8 @@ package notex.android.blackcoder.com.jokeproviderjava;
 
 import java.util.Random;
 
-public class JokeProvider {
+//Final Class since its not being extended
+public final class JokeProvider {
     private String[] jokesRepo = {
             "Q: What do computers eat for a snack? \n" +
                     "A: Microchips!",
